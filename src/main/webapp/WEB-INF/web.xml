@@ -7,7 +7,7 @@
     <display-name>Proyectof</display-name>
 
     <welcome-file-list>
-        <welcome-file>Persona/Personahome.jsp</welcome-file>
+        <welcome-file>Login/login.jsp</welcome-file>
     </welcome-file-list>
 
     <error-page>

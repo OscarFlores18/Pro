@@ -93,11 +93,11 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<script src="./scripts/utilsPersona.js"></script>
-<script src="./scripts/listarPersona.js"></script>
-<script src="./scripts/guardarPersona.js"></script>
-<script src="./scripts/eliminarPersona.js"></script>
-<script src="./scripts/editarPersona.js"></script>
+<script src="../scripts/utilsPersona.js"></script>
+<script src="../scripts/listarPersona.js"></script>
+<script src="../scripts/guardarPersona.js"></script>
+<script src="../scripts/eliminarPersona.js"></script>
+<script src="../scripts/editarPersona.js"></script>
 
 </body>
 </html>
