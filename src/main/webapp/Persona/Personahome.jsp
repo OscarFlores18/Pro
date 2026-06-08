@@ -1,17 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css">
 <title>Personas</title>
 </head>
 
 <body>
-
 <div class="container container-custom">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>Personas</h2>
@@ -98,6 +96,8 @@
 <script src="../scripts/guardarPersona.js"></script>
 <script src="../scripts/eliminarPersona.js"></script>
 <script src="../scripts/editarPersona.js"></script>
+
+
 
 </body>
 </html>

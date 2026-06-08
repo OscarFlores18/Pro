@@ -1,7 +1,7 @@
 function listar() {
 
     $.ajax({
-        url: "/SampleWebApp/listarPersona",
+        url: "/Proyectof/listarPersona",
         type: "GET",
         success: function(data) {
 

@@ -1,12 +1,11 @@
+import sys
 import face_recognition
 
-imagen_login = face_recognition.load_image_file(
-    r"C:\Users\Rog Zephyrus\Desktop\Trabajos\Proyectos maven\Proyectof\src\main\webapp\scripts\login.png"
-)
+ruta_login = sys.argv[1]
+ruta_admin = sys.argv[2]
 
-imagen_admin = face_recognition.load_image_file(
-    r"C:\Users\Rog Zephyrus\Desktop\Trabajos\Proyectos maven\Proyectof\src\main\webapp\scripts\admin.jpg"
-)
+imagen_login = face_recognition.load_image_file(ruta_login)
+imagen_admin = face_recognition.load_image_file(ruta_admin)
 
 encoding_login = face_recognition.face_encodings(imagen_login)
 encoding_admin = face_recognition.face_encodings(imagen_admin)

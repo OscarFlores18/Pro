@@ -25,20 +25,26 @@ public class LoginFacialController extends HttpServlet {
             byte[] bytes =
                 Base64.getDecoder().decode(imagen);
 
-            FileOutputStream fos =
-                new FileOutputStream(
-                    "C:/Users/Rog Zephyrus/Desktop/Trabajos/Proyectos maven/Proyectof/src/main/webapp/scripts/login.png"
-                );
+            String rutaLogin = request.getServletContext()
+            	    .getRealPath("/scripts/login.png");
+
+            	FileOutputStream fos = new FileOutputStream(rutaLogin);
 
             fos.write(bytes);
             fos.close();
 
-            ProcessBuilder pb =
-                new ProcessBuilder(
-                    "python",
-                    "C:/Users/Rog Zephyrus/Desktop/Trabajos/Proyectos maven/Proyectof/src/main/webapp/scripts/reconocer.py"
-                );
+            String rutaPython = request.getServletContext()
+            	    .getRealPath("/scripts/reconocer.py");
 
+            String rutaAdmin = request.getServletContext()
+            	    .getRealPath("/scripts/admin.jpg");
+
+            	ProcessBuilder pb = new ProcessBuilder(
+            	    "python",
+            	    rutaPython,
+            	    rutaLogin,
+            	    rutaAdmin
+            	);
             Process process = pb.start();
 
             BufferedReader reader =

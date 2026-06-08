@@ -1,7 +1,7 @@
 function eliminar(id) {
 
     $.ajax({
-        url: "/SampleWebApp/eliminarPersona",
+        url: "/Proyectof/eliminarPersona",
         type: "POST",
         data: { id: id },
         success: function() {

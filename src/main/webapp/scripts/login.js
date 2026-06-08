@@ -58,7 +58,7 @@ function capturar() {
             document.getElementById("mensaje").innerHTML =
             `
             <div class="alert alert-danger">
-                ❌ Usuario no reconocido
+                 Usuario no reconocido
             </div>
             `;
 
