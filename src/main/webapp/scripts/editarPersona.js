@@ -15,7 +15,7 @@ function editar(id, nombre, edad, dni, genero) {
 function actualizar() {
 
     $.ajax({
-        url: "/SampleWebApp/editarPersona",
+        url: "/Proyectof/editarPersona",
         type: "POST",
         data: {
             id: idEditar,
