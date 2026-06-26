@@ -10,6 +10,7 @@ function guardar() {
             genero: $("#genero").val()
         },
         success: function() {
+
             listar();
             limpiar();
         }

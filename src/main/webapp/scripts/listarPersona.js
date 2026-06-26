@@ -1,4 +1,5 @@
 function listar() {
+	console.log("LISTAR");
 
     $.ajax({
         url: "/Proyectof/listarPersona",

@@ -2,7 +2,7 @@ function limpiar() {
     $("#nombre").val("");
     $("#edad").val("");
     $("#dni").val("");
-    $("#sexo").val("");
+    $("#genero").val("");
 }
 
 $(document).ready(function() {

@@ -19,7 +19,6 @@ public class PersonaCrearController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-
         try {
 
             String edadStr = request.getParameter("edad");

@@ -1,55 +1,94 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Login Facial</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Iniciar Sesión</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="css/login.css">
-
+<link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
 
-<div class="login-card">
+<div class="container-fluid vh-100 d-flex justify-content-center align-items-center fondo-login">
 
-    <h2>Login Facial</h2>
+    <div class="card shadow login-card">
 
-    <video id="video" autoplay></video>
+        <div class="card-body p-5">
 
-    <button class="btn btn-primary btn-login" onclick="capturar()">
-        Ingresar
-    </button>
+            <h2 class="text-center fw-bold mb-2">
+                Iniciar sesión
+            </h2>
+            <p class="text-center text-muted mb-4">
+                Acceda al panel de administración
+            </p>
 
-    <div class="spinner-border text-primary" id="loader"></div>
+            <% if(request.getAttribute("error") != null){ %>
 
-    <div id="mensaje" class="mt-3"></div>
+                <div class="alert alert-danger">
 
-</div>
+                    <%= request.getAttribute("error") %>
 
-<canvas id="canvas" style="display:none;"></canvas>
+                </div>
 
-<!-- Modal -->
-<div class="modal fade" id="successModal" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
+            <% } %>
 
-      <div class="modal-header bg-success text-white">
-        <h5 class="modal-title">Acceso permitido</h5>
-      </div>
+            <form action="<%=request.getContextPath()%>/login" method="post">
+                <div class="mb-3">
+                    <label class="form-label">
+                        Nombre
+                    </label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="nombre"
+                        id="nombre"
+                        placeholder="Ingrese su nombre"
+                        required>
 
-      <div class="modal-body text-center">
-        <h3> Acceso aceptado</h3>
-        <p>Bienvenido al sistema.</p>
-      </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">
+                        Contraseña
+                    </label>
+
+                    <input
+                        type="password"
+                        class="form-control"
+                        name="password"
+                        id="password"
+                        placeholder="Ingrese su contraseña"
+                        required>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary w-100">
+
+                    Iniciar sesión
+
+                </button>
+
+            </form>
+            <div class="text-center my-4">
+
+                <span class="text-secondary">
+                    ─────────── O ───────────
+                </span>
+
+            </div>
+			<a href="<%=request.getContextPath()%>/Login/loginface.jsp"
+		   class="btn btn-outline-dark w-100">
+		    Acceder por reconocimiento facial
+			</a>
+
+        </div>
 
     </div>
-  </div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script src="scripts/login.js"></script>
-
+<script src="../scripts/login.js"></script>
 </body>
 </html>

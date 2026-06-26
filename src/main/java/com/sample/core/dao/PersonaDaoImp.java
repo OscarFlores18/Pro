@@ -13,14 +13,19 @@ public class PersonaDaoImp implements PersonaDao {
 
     @Override
     public void insert(Persona p) {
+    	
+    	
         String sql = "INSERT INTO persona(nombre, edad, dni, genero) VALUES (?, ?, ?, ?)";
 
         try {
+        	
+        	
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, p.getNombre());
             ps.setInt(2, p.getEdad());
             ps.setString(3, p.getDni());
             ps.setString(4, p.getGenero().name());
+
             ps.executeUpdate(); 
         } catch (Exception e) {
             e.printStackTrace();
@@ -29,6 +34,10 @@ public class PersonaDaoImp implements PersonaDao {
 
     @Override
     public List<Persona> list() {
+
+    	
+    	
+    	
         List<Persona> lista = new ArrayList<>();
         String sql = "SELECT * FROM persona";
 

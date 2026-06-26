@@ -36,3 +36,101 @@ h2 {
     z-index:1000;
     width:350px;
 }
+
+
+
+
+/* styles para el login */
+
+body{
+    margin:0;
+    padding:0;
+    background:#f5f7fa;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.fondo-login{
+    min-height:100vh;
+}
+
+.login-card{
+    width:100%;
+    max-width:430px;
+    border:none;
+    border-radius:12px;
+    background:#fff;
+}
+
+.login-card .card-body{
+    padding:40px;
+}
+
+.login-card h2{
+    color:#1f2937;
+}
+
+.form-label{
+    font-weight:600;
+    color:#374151;
+}
+
+.form-control{
+    height:50px;
+    border-radius:8px;
+    border:1px solid #ced4da;
+    transition:.3s;
+}
+
+.form-control:focus{
+    border-color:#2496ed;
+    box-shadow:0 0 0 .2rem rgba(36,150,237,.20);
+}
+
+.btn-primary{
+    height:50px;
+    border-radius:8px;
+    background:#2496ed;
+    border:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn-primary:hover{
+    background:#1d7fd1;
+}
+
+.btn-outline-dark{
+    height:50px;
+    border-radius:8px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-outline-dark:hover{
+    background:#212529;
+    color:white;
+}
+
+.alert{
+    border-radius:8px;
+}
+
+.text-secondary{
+    font-size:14px;
+    user-select:none;
+}
+
+@media(max-width:576px){
+
+    .login-card{
+        margin:20px;
+    }
+
+    .login-card .card-body{
+        padding:30px;
+    }
+
+}
+
+
+

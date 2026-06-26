@@ -26,14 +26,13 @@ public class LoginFacialController extends HttpServlet {
             String imagen = request.getReader().readLine();
             // la imagen viene así:
             // data:image/png;base64,xxxxx
-            //
+            
             // eliminamos la parte inicial
             imagen = imagen.split(",")[1];
             // convierte texto base64 a bytes reales
             byte[] bytes =
                     Base64.getDecoder().decode(imagen);
             // obtiene la carpeta scripts del proyecto
-            // funciona en tu PC y en Docker
             String rutaScripts =
                     getServletContext()
                     .getRealPath("/scripts");
@@ -55,7 +54,6 @@ public class LoginFacialController extends HttpServlet {
                         rutaScripts,
                         "reconocer.py"
                     );
-            // ejecuta:
             // python reconocer.py
             ProcessBuilder pb =
                     new ProcessBuilder(

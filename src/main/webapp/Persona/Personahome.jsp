@@ -42,9 +42,11 @@
         </div>
 
         <div class="col">
-<button class="btn btn-primary w-100" onclick="guardar()">
-   <i class="fa-solid fa-floppy-disk"></i>
-   Guardar
+<button type="button"
+        class="btn btn-primary w-100"
+        onclick="guardar()">
+    <i class="fa-solid fa-floppy-disk"></i>
+    Guardar
 </button>
         </div>
 
