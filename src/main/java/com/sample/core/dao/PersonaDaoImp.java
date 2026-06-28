@@ -41,9 +41,6 @@ public class PersonaDaoImp implements PersonaDao {
     @Override
     public List<Persona> list() {
 
-    	
-    	
-    	
         List<Persona> lista = new ArrayList<>();
         String sql = "SELECT * FROM persona";
 

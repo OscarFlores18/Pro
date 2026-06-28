@@ -24,7 +24,7 @@ public class LoginFacialController extends HttpServlet {
 
             // recibe la imagen enviada desde javascript
             String imagen = request.getReader().readLine();
-            // la imagen viene así:
+            // la imagen viene asi:
             // data:image/png;base64,xxxxx
             
             // eliminamos la parte inicial
@@ -42,7 +42,6 @@ public class LoginFacialController extends HttpServlet {
                         rutaScripts,
                         "login.png"
                     );
-
             // guarda la foto capturada
             FileOutputStream fos =
                     new FileOutputStream(archivoLogin);
@@ -77,7 +76,7 @@ public class LoginFacialController extends HttpServlet {
                 "RESULTADO PYTHON: "
                 + resultado
             );
-            // si Python no devolvió nada
+            // si Python no devolvio nada
             if(resultado == null){
 
                 resultado = "ERROR";

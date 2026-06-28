@@ -86,21 +86,21 @@ function guardar(){
 
 }
 
-function crear(datos){
-
-    Swal.fire({
-
-        title:"Guardando...",
-
-        allowOutsideClick:false,
-
-        didOpen:()=>{
-
-            Swal.showLoading();
-
-        }
-
-    });
+	function crear(datos){
+	
+	    Swal.fire({
+	
+	        title:"Guardando...",
+	
+	        allowOutsideClick:false,
+	
+	        didOpen:()=>{
+	
+	            Swal.showLoading();
+	
+	        }
+	
+	    });
 
     $.ajax({
 

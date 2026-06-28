@@ -4,14 +4,14 @@ import os
 # ubicación donde está este archivo
 ruta = os.path.dirname(os.path.abspath(__file__))
 
-# imagen capturada por la cámara
+# imagen capturada por la camara
 imagen_login = face_recognition.load_image_file(
     os.path.join(ruta, "login.png")
 )
 
 encoding_login = face_recognition.face_encodings(imagen_login)
 
-# si no encontró cara en la cámara
+# si no encontro cara en la cámara
 if len(encoding_login) == 0:
     print("NO_FACE")
     exit()
@@ -49,5 +49,5 @@ for admin in admins:
         print("ADMIN")
         exit()
 
-# si terminó el recorrido y no encontró coincidencias
+# si termino el recorrido y no encontró coincidencias
 print("NO_ADMIN")
