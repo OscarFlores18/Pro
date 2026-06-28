@@ -31,6 +31,8 @@ public class LoginController extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("admin", nombre);
 
+            
+            request.getSession().setAttribute("bienvenida", "¡Bienvenido !");
             response.sendRedirect("Persona/Personahome.jsp");
 
         } else {

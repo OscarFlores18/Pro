@@ -34,10 +34,19 @@ public class PersonaEditarController extends HttpServlet {
 
             Persona p = new Persona();
             p.setId(Integer.parseInt(request.getParameter("id")));
+            
             p.setNombre(request.getParameter("nombre"));
+            p.setApellido(request.getParameter("apellido"));
+
             p.setEdad(Integer.parseInt(edadStr));
             p.setDni(request.getParameter("dni"));
             p.setGenero(Genero.valueOf(generoStr.toUpperCase()));
+            
+            p.setLocalidad(request.getParameter("localidad"));
+            p.setCorreo(request.getParameter("correo"));
+            p.setTelefono(request.getParameter("telefono"));
+            p.setEstado(request.getParameter("estado"));
+            
 
             service.actualizar(p);
 

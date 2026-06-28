@@ -24,17 +24,21 @@
                 Acceda al panel de administración
             </p>
 
-            <% if(request.getAttribute("error") != null){ %>
-
-                <div class="alert alert-danger">
-
-                    <%= request.getAttribute("error") %>
-
-                </div>
-
-            <% } %>
-
-            <form action="<%=request.getContextPath()%>/login" method="post">
+		<% if(request.getAttribute("error") != null){ %>
+		
+		<script>
+		document.addEventListener("DOMContentLoaded", function () {
+		    Swal.fire({
+		        icon: "error",
+		        title: "Error",
+		        text: "<%= request.getAttribute("error") %>",
+		        confirmButtonText: "Aceptar"
+		    });
+		});
+		</script>
+		
+		<% } %>
+		<form action="<%=request.getContextPath()%>/login" method="post" onsubmit="return validarFormulario()">
                 <div class="mb-3">
                     <label class="form-label">
                         Nombre
@@ -89,6 +93,8 @@
 
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../scripts/login.js"></script>
 </body>
 </html>

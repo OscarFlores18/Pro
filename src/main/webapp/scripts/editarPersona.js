@@ -1,31 +1,107 @@
-function editar(id, nombre, edad, dni, genero){
+function editar(id, nombre, apellido, edad, dni, genero, localidad, correo, telefono, estado){
 
     Swal.fire({
-        title: "Editar Persona",
-		html: `
-		    <input id="swalNombre" class="swal2-input" value="${nombre}" placeholder="Nombre">
 
-		    <input id="swalEdad" class="swal2-input" type="number" value="${edad}" placeholder="Edad">
+        title: "Editar Usuario",
 
-		    <input id="swalDni" class="swal2-input" maxlength="8" value="${dni}" placeholder="DNI">
+        width: "700px",
 
-		    <select id="swalGenero" class="swal2-select">
-		        <option value="HOMBRE">HOMBRE</option>
-		        <option value="MUJER">MUJER</option>
-		        <option value="OTRO">OTRO</option>
-		    </select>
-		`,
+        html: `
+
+        <div class="row">
+
+            <div class="col-md-6 mb-2">
+                <input id="swalNombre" class="swal2-input" placeholder="Nombre" value="${nombre}">
+            </div>
+
+            <div class="col-md-6 mb-2">
+                <input id="swalApellido" class="swal2-input" placeholder="Apellido" value="${apellido}">
+            </div>
+
+            <div class="col-md-6 mb-2">
+                <input id="swalEdad" type="number" class="swal2-input" placeholder="Edad" value="${edad}">
+            </div>
+
+            <div class="col-md-6 mb-2">
+                <input id="swalDni" maxlength="8" class="swal2-input" placeholder="DNI" value="${dni}">
+            </div>
+
+            <div class="col-md-6 mb-2">
+                <select id="swalGenero" class="swal2-select">
+
+                    <option value="HOMBRE" ${genero=="HOMBRE"?"selected":""}>HOMBRE</option>
+
+                    <option value="MUJER" ${genero=="MUJER"?"selected":""}>MUJER</option>
+
+                    <option value="OTRO" ${genero=="OTRO"?"selected":""}>OTRO</option>
+
+                </select>
+            </div>
+
+            <div class="col-md-6 mb-2">
+                <input id="swalLocalidad" class="swal2-input" placeholder="Localidad" value="${localidad}">
+            </div>
+
+            <div class="col-md-6 mb-2">
+                <input id="swalCorreo" class="swal2-input" placeholder="Correo" value="${correo}">
+            </div>
+
+            <div class="col-md-6 mb-2">
+                <input id="swalTelefono" class="swal2-input" placeholder="Teléfono" value="${telefono}">
+            </div>
+
+            <div class="col-md-12">
+
+                <select id="swalEstado" class="swal2-select">
+
+                    <option value="Activo" ${estado=="Activo"?"selected":""}>
+                        Activo
+                    </option>
+
+                    <option value="Inactivo" ${estado=="Inactivo"?"selected":""}>
+                        Inactivo
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        `,
+
         showCancelButton: true,
-        confirmButtonText: "Guardar cambios",
+
+        confirmButtonText: "💾 Guardar cambios",
+
         cancelButtonText: "Cancelar",
+
+        focusConfirm: false,
+
         preConfirm: () => {
 
             return {
-                id: id,
-                nombre: $("#swalNombre").val(),
-                edad: $("#swalEdad").val(),
-                dni: $("#swalDni").val(),
-                genero: $("#swalGenero").val()
+
+                id:id,
+
+                nombre:$("#swalNombre").val(),
+
+                apellido:$("#swalApellido").val(),
+
+                edad:$("#swalEdad").val(),
+
+                dni:$("#swalDni").val(),
+
+                genero:$("#swalGenero").val(),
+
+                localidad:$("#swalLocalidad").val(),
+
+                correo:$("#swalCorreo").val(),
+
+                telefono:$("#swalTelefono").val(),
+
+                estado:$("#swalEstado").val()
+
             };
 
         }
@@ -33,38 +109,69 @@ function editar(id, nombre, edad, dni, genero){
     }).then((result)=>{
 
         if(result.isConfirmed){
+
             actualizar(result.value);
+
         }
 
     });
 
 }
+
 function actualizar(datos){
 
     Swal.fire({
-        title: "Editando...",
-        text: "Actualizando datos de la persona",
-        allowOutsideClick: false,
-        didOpen: ()=>{
+
+        title:"Editando...",
+
+        text:"Actualizando datos del usuario",
+
+        allowOutsideClick:false,
+
+        didOpen:()=>{
+
             Swal.showLoading();
+
         }
+
     });
 
     $.ajax({
 
-        url: "/Proyectof/editarPersona",
-        type: "POST",
+        url:"/Proyectof/editarPersona",
 
-        data: datos,
+        type:"POST",
 
-        success: function(){
+        data:datos,
 
-            Swal.fire(
-                "Actualizado!",
-                "La persona se actualizó correctamente",
-                "success"
-            ).then(()=>{
+        success:function(){
+
+            Swal.fire({
+
+                icon:"success",
+
+                title:"¡Actualizado!",
+
+                text:"El usuario se actualizó correctamente."
+
+            }).then(()=>{
+
                 listar();
+
+            });
+
+        },
+
+        error:function(){
+
+            Swal.fire({
+
+                icon:"error",
+
+                title:"Error",
+
+                text:"No se pudo actualizar el usuario."
+
             });
 
         }
@@ -72,16 +179,9 @@ function actualizar(datos){
     });
 
 }
-	
-	
-	
-	function cerrarModal(){
-	
-	$("#modalEditar").hide();
-	
-	}
-	
-	
-	function cerrarModal(){
-	    $("#modalEditar").hide();
-	}
+
+function cerrarModal(){
+
+    $("#modalEditar").hide();
+
+}

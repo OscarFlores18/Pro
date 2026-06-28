@@ -9,6 +9,22 @@ navigator.mediaDevices.getUserMedia({ video: true })
 function capturar() {
     let loader = document.getElementById("loader");
     loader.style.display = "inline-block";
+	
+	
+	Swal.fire({
+	    title: "Reconociendo rostro...",
+	    text: "Espere unos segundos.",
+	    allowOutsideClick: false,
+	    allowEscapeKey: false,
+		backdrop: true,
+		heightAuto: false,
+	    didOpen: () => {
+	        Swal.showLoading();
+	    }
+	});
+	
+	
+	
 
     let video = document.getElementById("video");
     let canvas = document.getElementById("canvas");
@@ -32,56 +48,53 @@ function capturar() {
 
     .then(data => {
         loader.style.display="none";
+		
+		Swal.close();
+
         console.log(
             "RESPUESTA:",
             data
         );
         data=data.trim();
-        if(data === "ADMIN"){
+		if (data === "ADMIN") {
 
-            let modal =
-            new bootstrap.Modal(
-                document.getElementById(
-                    'successModal'
-                )
-            );
-            modal.show();
-            setTimeout(()=>{
-                window.location.href =
-                "/Proyectof/Persona/Personahome.jsp";
-            },2000);
-        }
-        else if(data === "NO_ADMIN"){
+		    Swal.fire({
+		        icon: "success",
+		        title: "¡Bienvenido!",
+		        text: "Inicio de sesion exitoso.",
+		        timer: 2000,
+		        showConfirmButton: false
+		    }).then(() => {
+		        window.location.href = "/Proyectof/Persona/Personahome.jsp";
+		    });
 
-            document.getElementById("mensaje").innerHTML =
-            `
-            <div class="alert alert-danger">
+		}
+		else if (data === "NO_ADMIN") {
 
-                 Usted no es el administrador
-            </div>
-            `;
-        }
-        else if(data === "NO_FACE"){
-            document.getElementById("mensaje").innerHTML =
+		    Swal.fire({
+		        icon: "error",
+		        title: "Acceso denegado",
+		        text: "Usted no es el administrador."
+		    });
 
-            `
-            <div class="alert alert-warning">
+		}
+		else if (data === "NO_FACE") {
 
-                 No hay ninguna cara en la camara
+		    Swal.fire({
+		        icon: "warning",
+		        title: "No se detecto ninguna cara",
+		        text: "Coloquese frente a la camara e intente nuevamente."
+		    });
 
-            </div>
-            `;
-        }
-        else{
-            document.getElementById("mensaje").innerHTML =
+		}
+		else {
 
-            `
-            <div class="alert alert-danger">
+		    Swal.fire({
+		        icon: "error",
+		        title: "Error",
+		        text: "Ocurrio un error en el reconocimiento facial."
+		    });
 
-                Error en reconocimiento facial
-
-            </div>
-            `;
-        }
+		}
     });
 }

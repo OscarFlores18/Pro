@@ -3,37 +3,51 @@ import os
 
 # ubicación donde está este archivo
 ruta = os.path.dirname(os.path.abspath(__file__))
+
 # imagen capturada por la cámara
 imagen_login = face_recognition.load_image_file(
-    os.path.join(ruta,"login.png")
+    os.path.join(ruta, "login.png")
 )
-# imagen del administrador registrado
-imagen_admin = face_recognition.load_image_file(
-    os.path.join(ruta,"admin.jpg")
-)
-# obtener caras
+
 encoding_login = face_recognition.face_encodings(imagen_login)
-encoding_admin = face_recognition.face_encodings(imagen_admin)
 
 # si no encontró cara en la cámara
 if len(encoding_login) == 0:
-
     print("NO_FACE")
     exit()
-# si no existe cara del admin
-if len(encoding_admin) == 0:
 
-    print("NO_ADMIN")
-    exit()
-# compara caras
-resultado = face_recognition.compare_faces(
-    [encoding_admin[0]],
-    encoding_login[0]
-)
+# lista de administradores
+admins = [
+    "admin.jpg",
+    "admin1.jpg",
+    "admin2.jpg"
+]
 
-# si coincide
-if resultado[0]:
-    print("ADMIN")
-# si hay cara pero no es el admin
-else:
-    print("NO_ADMIN")
+# recorrer todos los administradores
+for admin in admins:
+
+    ruta_admin = os.path.join(ruta, admin)
+
+    # si el archivo no existe, lo salta
+    if not os.path.exists(ruta_admin):
+        continue
+
+    imagen_admin = face_recognition.load_image_file(ruta_admin)
+    encoding_admin = face_recognition.face_encodings(imagen_admin)
+
+    # si esa imagen no tiene rostro, la salta
+    if len(encoding_admin) == 0:
+        continue
+
+    # comparar
+    resultado = face_recognition.compare_faces(
+        [encoding_admin[0]],
+        encoding_login[0]
+    )
+
+    if resultado[0]:
+        print("ADMIN")
+        exit()
+
+# si terminó el recorrido y no encontró coincidencias
+print("NO_ADMIN")

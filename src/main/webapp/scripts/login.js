@@ -1,22 +1,51 @@
 window.onload = function () {
-
     document.getElementById("nombre").focus();
 
-}
+    $("#loginForm").submit(function (e) {
+        e.preventDefault();
 
-function validarFormulario() {
+        let nombre = $("#nombre").val().trim();
+        let password = $("#password").val().trim();
 
-    let nombre = document.getElementById("nombre").value.trim();
-    let password = document.getElementById("password").value.trim();
+        if (nombre === "" || password === "") {
+            Swal.fire({
+                icon: "warning",
+                title: "Campos incompletos",
+                text: "Complete todos los campos."
+            });
+            return;
+        }
 
-    if(nombre === "" || password === ""){
+        $.ajax({
+            url: "login",
+            type: "POST",
+            data: {
+                nombre: nombre,
+                password: password
+            },
+            success: function (respuesta) {
+                if (respuesta === "OK") {
 
-        alert("Complete todos los campos.");
+                    Swal.fire({
+                        icon: "success",
+                        title: "¡Bienvenido!",
+                        text: "Inicio de sesión correcto.",
+                        timer: 2000,
+                        showConfirmButton: false
+                    }).then(() => {
+                        window.location.href = "Persona/Personahome.jsp";
+                    });
 
-        return false;
+                } else {
 
-    }
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: "Nombre o contraseña incorrectos."
+                    });
 
-    return true;
-
-}
+                }
+            }
+        });
+    });
+};

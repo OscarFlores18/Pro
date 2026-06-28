@@ -9,6 +9,46 @@ public class Persona {
 	    private String dni;
 	    private Genero genero;
 
+	    
+	    private String apellido;
+	    private String localidad;
+	    private String correo;
+	    private String telefono;
+	    private String estado;
+	    
+	    
+		public String getApellido() {
+			return apellido;
+		}
+		public void setApellido(String apellido) {
+			this.apellido = apellido;
+		}
+		public String getLocalidad() {
+			return localidad;
+		}
+		public void setLocalidad(String localidad) {
+			this.localidad = localidad;
+		}
+		public String getCorreo() {
+			return correo;
+		}
+		public void setCorreo(String correo) {
+			this.correo = correo;
+		}
+		public String getTelefono() {
+			return telefono;
+		}
+		public void setTelefono(String telefono) {
+			this.telefono = telefono;
+		}
+		public String getEstado() {
+			return estado;
+		}
+		public void setEstado(String estado) {
+			this.estado = estado;
+		}
+		
+		// ostras
 		public int getId() {
 			return id;
 		}

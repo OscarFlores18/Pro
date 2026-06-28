@@ -1,136 +1,218 @@
-body {
-    background-color: #f4f6f9;
-}
-
-.container-custom {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
-    margin-top: 50px;
-}
-
-h2 {
-    font-weight: bold;
-    color: #333;
-}
-
-.table {
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.btn-primary {
-    border-radius: 10px;
-}
-
-.modal-custom {
-    display:none;
-    position:fixed;
-    top:20%;
-    left:35%;
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0px 0px 20px rgba(0,0,0,0.3);
-    z-index:1000;
-    width:350px;
-}
-
-
-
-
-/* styles para el login */
+/*=============================
+        PERSONAS
+=============================*/
 
 body{
-    margin:0;
-    padding:0;
-    background:#f5f7fa;
+    background:#f4f7fb;
     font-family:Arial, Helvetica, sans-serif;
 }
 
-.fondo-login{
-    min-height:100vh;
+.container{
+    max-width:1300px;
 }
 
-.login-card{
-    width:100%;
-    max-width:430px;
+.cabecera{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.cabecera h2{
+    font-weight:700;
+    color:#212529;
+    margin:0;
+}
+
+.cabecera p{
+    color:#6c757d;
+    margin-top:5px;
+}
+
+.formulario{
     border:none;
-    border-radius:12px;
-    background:#fff;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
-.login-card .card-body{
-    padding:40px;
+.form-control,
+.form-select{
+    height:48px;
+    border-radius:10px;
 }
 
-.login-card h2{
-    color:#1f2937;
-}
-
-.form-label{
-    font-weight:600;
-    color:#374151;
-}
-
-.form-control{
-    height:50px;
-    border-radius:8px;
-    border:1px solid #ced4da;
-    transition:.3s;
-}
-
-.form-control:focus{
-    border-color:#2496ed;
-    box-shadow:0 0 0 .2rem rgba(36,150,237,.20);
+.form-control:focus,
+.form-select:focus{
+    border-color:#0d6efd;
+    box-shadow:0 0 0 .15rem rgba(13,110,253,.20);
 }
 
 .btn-primary{
-    height:50px;
-    border-radius:8px;
-    background:#2496ed;
-    border:none;
+    border-radius:10px;
+    padding:12px 25px;
     font-weight:bold;
-    transition:.3s;
 }
 
-.btn-primary:hover{
-    background:#1d7fd1;
+/*=============================
+        TARJETAS
+=============================*/
+
+.usuario-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.25s;
+
+    height:100%;
+
 }
 
-.btn-outline-dark{
-    height:50px;
-    border-radius:8px;
-    font-weight:600;
-    transition:.3s;
+.usuario-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
 }
 
-.btn-outline-dark:hover{
-    background:#212529;
+.usuario-avatar{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    background:#0d6efd;
+
     color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+    margin:auto;
+
+    margin-bottom:18px;
+
 }
 
-.alert{
-    border-radius:8px;
+.usuario-card h4{
+
+    text-align:center;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
 }
 
-.text-secondary{
-    font-size:14px;
-    user-select:none;
+.usuario-info{
+
+    margin-bottom:10px;
+
+    color:#555;
+
 }
 
-@media(max-width:576px){
+.usuario-info i{
 
-    .login-card{
-        margin:20px;
+    width:22px;
+
+    color:#0d6efd;
+
+}
+
+.estado{
+
+    display:inline-block;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+}
+
+.estado-activo{
+
+    background:#d1f7df;
+
+    color:#1c8b48;
+
+}
+
+.estado-inactivo{
+
+    background:#ffd8d8;
+
+    color:#c62828;
+
+}
+
+.acciones{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:18px;
+
+}
+
+.acciones button{
+
+    flex:1;
+
+    border-radius:10px;
+
+}
+
+/*=============================
+      BUSCADOR
+=============================*/
+
+.input-group-text{
+
+    background:white;
+
+    border-radius:10px 0 0 10px;
+
+}
+
+#buscar{
+
+    border-radius:0 10px 10px 0;
+
+}
+
+/*=============================
+      RESPONSIVE
+=============================*/
+
+@media(max-width:768px){
+
+    .cabecera{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
     }
 
-    .login-card .card-body{
-        padding:30px;
-    }
-
 }
-
-
-
