@@ -21,13 +21,13 @@ function capturar() {
     ctx.drawImage(video,0,0);
     // convierte la imagen a base64
     let imagen = canvas.toDataURL("image/png");
-    fetch("loginFacial", {
-        method:"POST",
-        headers:{
-            "Content-Type":"text/plain"
-        },
-        body:imagen
-    })
+	fetch("/Proyectof/loginFacial", {
+	    method: "POST",
+	    headers: {
+	        "Content-Type": "text/plain"
+	    },
+	    body: imagen
+	})
     .then(res => res.text())
 
     .then(data => {

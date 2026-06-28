@@ -67,31 +67,12 @@
 
 </div>
 
-<div id="modalEditar" class="modal-custom">
-    <h4 class="mb-3">Editar Persona</h4>
-
-    <input id="editNombre" class="form-control mb-2" placeholder="Nombre">
-    <input id="editDni" class="form-control mb-2" placeholder="DNI">
-    <input id="editEdad" class="form-control mb-2" placeholder="Edad">
-
-    <select id="editGenero" class="form-control mb-3">
-        <option value="HOMBRE">Masculino</option>
-        <option value="MUJER">Femenino</option>
-        <option value="OTRO">Otro</option>
-    </select>
-
-    <div class="d-flex justify-content-between">
-        <button  type="button" class="btn btn-success" onclick="actualizar()">Actualizar</button>
-        <button  type="button" class="btn btn-secondary" onclick="cerrarModal()">Cancelar</button>
-    </div>
-
-</div>
-
 <script>
     const contextPath = "${pageContext.request.contextPath}";
 </script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script src="../scripts/utilsPersona.js"></script>
 <script src="../scripts/listarPersona.js"></script>

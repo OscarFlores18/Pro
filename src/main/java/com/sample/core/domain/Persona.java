@@ -9,7 +9,6 @@ public class Persona {
 	    private String dni;
 	    private Genero genero;
 
-	    
 		public int getId() {
 			return id;
 		}

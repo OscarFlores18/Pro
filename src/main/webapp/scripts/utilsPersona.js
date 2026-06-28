@@ -1,4 +1,5 @@
 function limpiar() {
+	
     $("#nombre").val("");
     $("#edad").val("");
     $("#dni").val("");

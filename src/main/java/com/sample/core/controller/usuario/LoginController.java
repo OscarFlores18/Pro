@@ -14,9 +14,9 @@ public class LoginController extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    // Datos del único administrador
-    private final String NOMBRE = "Oscar";
-    private final String PASSWORD = "123456";
+    // Datos del admin
+    private final String NOMBRE = "admin";
+    private final String PASSWORD = "1234";
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
