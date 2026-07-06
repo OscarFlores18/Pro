@@ -13,7 +13,7 @@ public class Main {
 
 	 public static void main(String[] args) throws Exception {
 
-	        String webappDirLocation = "src/main/webapp/";
+	        String webappDirLocation = "";
 	        Tomcat tomcat = new Tomcat();
 	        String webPort = System.getenv("PORT");
 

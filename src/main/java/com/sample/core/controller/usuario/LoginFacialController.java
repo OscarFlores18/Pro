@@ -15,13 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/loginFacial")
 public class LoginFacialController extends HttpServlet {
-
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-
         try {
-
             // recibe la imagen enviada desde javascript
             String imagen = request.getReader().readLine();
             // la imagen viene asi:
@@ -30,64 +25,35 @@ public class LoginFacialController extends HttpServlet {
             // eliminamos la parte inicial
             imagen = imagen.split(",")[1];
             // convierte texto base64 a bytes reales
-            byte[] bytes =
-                    Base64.getDecoder().decode(imagen);
+            byte[] bytes = Base64.getDecoder().decode(imagen);
             // obtiene la carpeta scripts del proyecto
-            String rutaScripts =
-                    getServletContext()
-                    .getRealPath("/scripts");
+            String rutaScripts = getServletContext().getRealPath("/scripts");
             // crea archivo login.png
-            File archivoLogin =
-                    new File(
-                        rutaScripts,
-                        "login.png"
-                    );
+            File archivoLogin = new File(rutaScripts, "login.png");
             // guarda la foto capturada
-            FileOutputStream fos =
-                    new FileOutputStream(archivoLogin);
+            FileOutputStream fos = new FileOutputStream(archivoLogin);
             fos.write(bytes);
             fos.close();
             // ubicación del python
-            File python =
-                    new File(
-                        rutaScripts,
-                        "reconocer.py"
-                    );
+            File python = new File(rutaScripts, "reconocer.py");
             // python reconocer.py
-            ProcessBuilder pb =
-                    new ProcessBuilder(
-                        "python",
-                        python.getAbsolutePath()
-                    );
+            ProcessBuilder pb = new ProcessBuilder("python",python.getAbsolutePath());
 
-            Process process =
-                    pb.start();
+            Process process = pb.start();
             // lee lo que devuelve Python
-            BufferedReader reader =
-                    new BufferedReader(
-                        new InputStreamReader(
-                            process.getInputStream()
-                        )
-                    );
-            String resultado =
-                    reader.readLine();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String resultado = reader.readLine();
 
-            System.out.println(
-                "RESULTADO PYTHON: "
-                + resultado
-            );
+            System.out.println("RESULTADO PYTHON: "+ resultado );
             // si Python no devolvio nada
             if(resultado == null){
-
                 resultado = "ERROR";
             }
             // manda respuesta al javascript
-            response.getWriter()
-                    .write(resultado);
+            response.getWriter().write(resultado);
         }catch(Exception e){
             e.printStackTrace();
-            response.getWriter()
-                    .write("ERROR");
+            response.getWriter().write("ERROR");
         }
 
     }

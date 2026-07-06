@@ -23,9 +23,6 @@ function capturar() {
 	    }
 	});
 	
-	
-	
-
     let video = document.getElementById("video");
     let canvas = document.getElementById("canvas");
 
@@ -60,7 +57,7 @@ function capturar() {
 
 		    Swal.fire({
 		        icon: "success",
-		        title: "¡Bienvenido!",
+		        title: "!Bienvenido!",
 		        text: "Inicio de sesion exitoso.",
 		        timer: 2000,
 		        showConfirmButton: false

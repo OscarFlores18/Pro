@@ -17,11 +17,7 @@ if len(encoding_login) == 0:
     exit()
 
 # lista de administradores
-admins = [
-    "admin.jpg",
-    "admin1.jpg",
-    "admin2.jpg"
-]
+admins = ["admin.jpg"]
 
 # recorrer todos los administradores
 for admin in admins:
@@ -42,7 +38,8 @@ for admin in admins:
     # comparar
     resultado = face_recognition.compare_faces(
         [encoding_admin[0]],
-        encoding_login[0]
+        encoding_login[0],
+        tolerance =0.55
     )
 
     if resultado[0]:
